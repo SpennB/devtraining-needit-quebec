@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope) {
+
+	$scope.$watch('page.field.value', function(nv, ov) {
+		$scope.error = false;
+		if (!nv)
+			return; 
+
+		$scope.error = isNaN($scope.page.field.value);
+	})
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>input.currency {
+  text-align: right; 
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>currency-fun</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>currency-fun</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var csym = {};
+	csym.usd = {symbol: "$", location: "prefix"};
+	csym.cad = {symbol: "$", location: "prefix"};
+	csym.mxn = {symbol: "$", location: "prefix"};
+	csym.eur = {symbol: "€", location: "prefix"};
+	csym.gbp = {symbol: "£", location: "prefix"};
+	
+	var locale = GlideLocale.get();
+	var cc = data.symbol = locale.getCurrencyCode();
+	cc = cc.toLowerCase();
+	data.cc = cc;
+	locale.getCurrencyCode();
+	if (csym[cc]) 
+		data.symbol = csym[cc].symbol;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-02 14:26:53</sys_created_on>
+        <sys_id>0cc898202f713010ec275e072799b60b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>currency-fun</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sp_widget_0cc898202f713010ec275e072799b60b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-02 14:26:53</sys_updated_on>
+        <template><![CDATA[<div class="row">
+  <div class="col-md-2">
+    <span class="input-group">
+      <span class="input-group-addon">{{data.symbol}}</span>
+      <input type="text" ng-model="page.fieldValue" ng-model-options="{getterSetter: true}" class="form-control currency" />
+    </span>
+  </div>
+  <div class="col-md-10">
+    <div ng-if="error" class="alert alert-danger" role="alert">${Has to be a number}</div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>9b4fa053db2e089052dd2f17d496193c</instance_id>
+        <instance_name>dev98323</instance_name>
+        <name>sp_widget_0cc898202f713010ec275e072799b60b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function ($scope) {
+
+	$scope.$watch('page.field.value', function(nv, ov) {
+		$scope.error = false;
+		if (!nv)
+			return; 
+
+		$scope.error = isNaN($scope.page.field.value);
+	})
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;input.currency {
+  text-align: right; 
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;currency-fun&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {  }]]&gt;&lt;/link&gt;&lt;name&gt;currency-fun&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	var csym = {};
+	csym.usd = {symbol: "$", location: "prefix"};
+	csym.cad = {symbol: "$", location: "prefix"};
+	csym.mxn = {symbol: "$", location: "prefix"};
+	csym.eur = {symbol: "€", location: "prefix"};
+	csym.gbp = {symbol: "£", location: "prefix"};
+	
+	var locale = GlideLocale.get();
+	var cc = data.symbol = locale.getCurrencyCode();
+	cc = cc.toLowerCase();
+	data.cc = cc;
+	locale.getCurrencyCode();
+	if (csym[cc]) 
+		data.symbol = csym[cc].symbol;
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-08-02 14:26:53&lt;/sys_created_on&gt;&lt;sys_id&gt;0cc898202f713010ec275e072799b60b&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;currency-fun&lt;/sys_name&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_0cc898202f713010ec275e072799b60b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-08-02 14:26:53&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="row"&gt;
+  &lt;div class="col-md-2"&gt;
+    &lt;span class="input-group"&gt;
+      &lt;span class="input-group-addon"&gt;{{data.symbol}}&lt;/span&gt;
+      &lt;input type="text" ng-model="page.fieldValue" ng-model-options="{getterSetter: true}" class="form-control currency" /&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-10"&gt;
+    &lt;div ng-if="error" class="alert alert-danger" role="alert"&gt;${Has to be a number}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>244710964</payload_hash>
+        <record_name>currency-fun</record_name>
+        <reverted_from/>
+        <source>69a72cb62f913010ec275e072799b62c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-02 14:26:53</sys_created_on>
+        <sys_id>88c898202f713010ec275e072799b60f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17b0742a6fd0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-02 14:26:53</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>80c89820f671301051c33e0bc2c8e20f</update_guid>
+        <update_guid_history>80c89820f671301051c33e0bc2c8e20f:244710964</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="currency-fun">e851fc602fb13010ec275e072799b600</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-02 16:14:14</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>3fc08b06ba1b4c7cb81c4aeedaf59624</sys_id>
+        <sys_metadata>0cc898202f713010ec275e072799b60b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>currency-fun</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sp_widget_0cc898202f713010ec275e072799b60b</sys_update_name>
+        <sys_update_version display_value="sp_widget_0cc898202f713010ec275e072799b60b">88c898202f713010ec275e072799b60f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-02 16:14:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
